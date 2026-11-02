@@ -72,9 +72,11 @@ x-qwen: &qwen
       required: false
   environment:
     HOME: /cache
+    TZ: Asia/Seoul
   volumes:
     - ${MODELS_DIR:-./models}:/app/models
     - qwen-cache:/cache
+    - /etc/localtime:/etc/localtime:ro
 
 x-serve: &serve
   <<: *qwen
